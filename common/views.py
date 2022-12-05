@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from . models import Customer,Seller
 import random
 from django.core.mail import send_mail
@@ -9,7 +9,18 @@ from django.conf import settings
 # Create your views here.
 
 def home_page(request):
-    return render(request,'common/homepage.html')
+    msg = ''
+    if request.method == 'POST':
+        sell_username = request.POST['s_username'] 
+        sell_password = request.POST['sell_password'] 
+        # select * from seller where selleruname= selername and passwd = passwd
+        try :
+            seller = Seller.objects.get(seller_user = sell_username, seller_pass = sell_password )
+            return redirect('reseller:sellerhome')
+        except:
+             msg = 'username or password incorrect'
+    return render(request,'common/homepage.html',{'msg':msg,})
+
 def custreg_page(request):
     if request.method == 'POST': #when submit button is clicked
         c_name = request.POST['c_name'] #here we get data input in textbox,
@@ -44,7 +55,7 @@ def sellreg_page(request):
 
         username = random.randint(1111,9999)
         seller_password = 'sel-' + seller_name.lower() + str(username)
-        message = 'hai your username is ' + str(seller_name) + 'and temporary password is ' + seller_password
+        message = 'hai your username is ' + str(username) + 'and temporary password is ' + seller_password
 
 
         send_mail(
