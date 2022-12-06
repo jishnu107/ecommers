@@ -8,9 +8,6 @@ from django.conf import settings
 
 # Create your views here.
 
-def home_page(request):
-    return render(request,'common/selllogin.html')
-
 def custreg_page(request):
     if request.method == 'POST': #when submit button is clicked
         c_name = request.POST['c_name'] #here we get data input in textbox,
@@ -100,9 +97,5 @@ def selllogin_page(request):
         except:
              msg = 'username or password incorrect'
     return render(request,'common/selllogin.html',{'msg':msg})
-def addprod_page(request):
-    return render(request,'common/addprod.html')
 def custlogin_page(request):
     return render(request,'common/custlogin.html')
-def pass_page(request):
-    return render(request,'common/pass.html')

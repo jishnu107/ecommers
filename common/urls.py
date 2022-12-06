@@ -7,7 +7,6 @@ urlpatterns = [
     path('sellreg',views.sellreg_page,name='sellreg'),
     path('selllogin',views.selllogin_page,name='selllogin'),
     path('custlogin',views.custlogin_page,name='custlogin'),
-    path('pass',views.pass_page,name='pass'),
 
 
 

@@ -19,22 +19,22 @@
                             <div class="card shadow border">
                                 <div class="card-body">
                                     <h3>SELLER LOGIN</h3>
+                                    <form method="POST">
+                                        <div class="mb-3">
+                                            <input type="name" name='c_username' class="form-control" id="exampleFormControlInput1" placeholder="username">
+                                        </div>
+                                        <div class="mb-3 text-center">
+                                        <input type="password" name="cust_password" class="form-control" placeholder="Password" id="exampleInputPassword1">
+                                        </div>
+                                        <div class="text-center mt-3">
+                                            <a href="{% url 'common:selllogin' %}">
+                                        <button type="submit" class="btn btn-primary">LOGIN</button><BR>
+                                            </a>
+                                        <a href="#" class="nav-link text-primary">Forgot password?</a>
+                                        <a href="{% url 'common:custreg' %}" class="nav-link text-primary">Create an account?</a>
+                                        </div>
+                                    </form>
                                 </div>
-                                <form method="POST">
-                                    <div class="mb-3">
-                                        <input type="name" name='c_username' class="form-control" id="exampleFormControlInput1" placeholder="username">
-                                    </div>
-                                    <div class="mb-3 text-center">
-                                    <input type="password" name="cust_password" class="form-control" placeholder="Password" id="exampleInputPassword1">
-                                    </div>
-                                    <div class="text-center mt-3">
-                                        <a href="{% url 'common:selllogin' %}">
-                                    <button type="submit" class="btn btn-primary">LOGIN</button><BR>
-                                        </a>
-                                    <a href="#" class="nav-link text-primary">Forgot password?</a>
-                                    <a href="{% url 'common:custreg' %}" class="nav-link text-primary">Create an account?</a>
-                                    </div>
-                                </form>
                             </div>
                         </div>
                     </div>

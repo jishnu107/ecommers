@@ -16,8 +16,8 @@
         <div class="card shadow border">
             <div class="card-body">
                 <h3>ADD PRODUCT</h3>
-                <form method="POST" enctype = "multipart/form_data">
-                    {% csrf_token %}
+                <form method="POST" enctype = 'multipart/form-data'>
+                    {% csrf_token %} 
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Product Name</label>
                     <input type="name" name='p_name' class="form-control" id="exampleFormControlInput1">
@@ -36,11 +36,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Product Image</label>
-                    <input class="form-control" name='p_name' type="file" id="formFile">
-                    </div>
-                    <div class="mb-3">
+                    <input class="form-control" name='p_image' type="file" id="formFile">
+                </div>
+                <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Price</label>
-                    <input type="number" class="form-control" id="exampleFormControlInput1">
+                    <input type="number" name='price' class="form-control" id="exampleFormControlInput1">
                 </div>
                     <button type="submit" class="btn btn-primary">Add Product</button>
                 </form>

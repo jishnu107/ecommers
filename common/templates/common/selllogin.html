@@ -13,30 +13,30 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="container mt-5 pt-5 mb-5 pb-5">
+                <div class="container mt-5 pt-5 mb-4 pb-4">
                     <div class="row">
                         <div class="col-12 col-sm-8 col-md-6 m-auto">
                             <div class="card shadow border">
                                 <div class="card-body">
                                     <h3>SELLER LOGIN</h3>
+                                    <form method="POST">
+                                        {% csrf_token %}
+                                        {{msg}}
+                                        <div class="mb-3">
+                                            <input type="name" name='s_username' class="form-control" id="exampleFormControlInput1" placeholder="username">
+                                        </div>
+                                        <div class="mb-3 text-center">
+                                        <input type="password" name="sell_password" class="form-control" placeholder="Password" id="exampleInputPassword1">
+                                        </div>
+                                        <div class="text-center mt-3">
+                                            <a href="{% url 'common:selllogin' %}">
+                                        <button type="submit" class="btn btn-primary">LOGIN</button><BR>
+                                            </a>
+                                        <a href="#" class="nav-link text-primary">Forgot password?</a>
+                                        <a href="{% url 'common:sellreg' %}" class="nav-link text-primary">Create an account?</a>
+                                        </div>
+                                    </form>
                                 </div>
-                                <form method="POST">
-                                    {% csrf_token %}
-                                    {{msg}}
-                                    <div class="mb-3">
-                                        <input type="name" name='s_username' class="form-control" id="exampleFormControlInput1" placeholder="username">
-                                    </div>
-                                    <div class="mb-3 text-center">
-                                    <input type="password" name="sell_password" class="form-control" placeholder="Password" id="exampleInputPassword1">
-                                    </div>
-                                    <div class="text-center mt-3">
-                                        <a href="{% url 'common:selllogin' %}">
-                                    <button type="submit" class="btn btn-primary">LOGIN</button><BR>
-                                        </a>
-                                    <a href="#" class="nav-link text-primary">Forgot password?</a>
-                                    <a href="{% url 'common:sellreg' %}" class="nav-link text-primary">Create an account?</a>
-                                    </div>
-                                </form>
                             </div>
                         </div>
                     </div>
