@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +12,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-2 bg-secondary">
-                <div class="sidebar pe-4 pb-3">
+                <div class="sidebar pe-4 pb-3" style="height: 750px;">
                     <nav class="navbar">
                         <div class="navbar-nav w-100">
+                          <img src="" height="100px" width="100px" style="margin: auto;" alt="...">
                             <a href="{% url 'reseller:sellerhome' %}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Home</a>
                             <a href="" class="nav-item nav-link active"><i class="fa fa-th me-2"></i>Catalog</a>
                             <a href="{% url 'reseller:addproduct' %}" class="nav-item nav-link active"><i class="fa fa-keyboard me-2"></i>Add product</a>
@@ -24,60 +26,12 @@
                 </div>
             </div>
             {% block content %}
-            <div class="col-sm-3">
-                <div class="card mt-3" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-                  <div class="card mt-3" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card mt-3" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-                  <div class="card mt-3" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card mt-3" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-                  <div class="card mt-3" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-            </div>
+             <div class="col-10">
+            <h2>Welcome {{data.seller_name}}</h2>
+
+
+             </div>
+            
             {% endblock %}
         </div>
     </div>

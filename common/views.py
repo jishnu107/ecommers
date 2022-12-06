@@ -9,17 +9,7 @@ from django.conf import settings
 # Create your views here.
 
 def home_page(request):
-    msg = ''
-    if request.method == 'POST':
-        sell_username = request.POST['s_username'] 
-        sell_password = request.POST['sell_password'] 
-        # select * from seller where selleruname= selername and passwd = passwd
-        try :
-            seller = Seller.objects.get(seller_user = sell_username, seller_pass = sell_password )
-            return redirect('reseller:sellerhome')
-        except:
-             msg = 'username or password incorrect'
-    return render(request,'common/homepage.html',{'msg':msg,})
+    return render(request,'common/selllogin.html')
 
 def custreg_page(request):
     if request.method == 'POST': #when submit button is clicked
@@ -76,7 +66,40 @@ def sellreg_page(request):
 
     return render(request,'common/sellreg.html')
 def selllogin_page(request):
-    return render(request,'common/selllogin.html')
+    msg = ''
+    if request.method == 'POST':
+        sell_username = request.POST['s_username'] 
+        sell_password = request.POST['sell_password'] 
+        
+        # select * from seller where selleruname= selername and passwd = passwd
+        try :
+            seller = Seller.objects.get(seller_user = sell_username, seller_pass = sell_password )
+
+            # if username and password is correct, we set a session variable with key 'seller'
+            # session variable can be accessed throughout the application
+
+            # working of django session
+            # when username and password is correct, we set a session variable with key(here key is 'seller') and
+            # unique value for each seller (here value is the primary key of the logged in seller)
+            # if a seller with primary key 2 logs in, session key will be 'seller' and value will be 2
+            
+            # when we set a session, key and value will be stored in django_session table inside database in encrypted format
+
+            # the encrypted key will be send with http response to the client (browser)
+            # in the client side (browser), the key received from the server will be stored in browser storage (cookies in case of django)
+
+            # when the user request any page (eg : cart page) from the same browser, the same key stored inside cookies
+            # will be sending to the server through http request 
+
+            # when the request reaches the server, it will look for the key stored in cookie to match with 
+            # django_session table inside the database to find the corresponding user
+
+
+            request.session['seller'] = seller.id
+            return redirect('reseller:sellerhome')
+        except:
+             msg = 'username or password incorrect'
+    return render(request,'common/selllogin.html',{'msg':msg})
 def addprod_page(request):
     return render(request,'common/addprod.html')
 def custlogin_page(request):
