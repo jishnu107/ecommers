@@ -1,31 +1,43 @@
 {% extends 'ecomadmin/adminhome.html' %}
 {% load static %}
 {% block content %}
-  <div class="text-center p-4">
-    <h1>VIEW SELLER</h1>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="">
-        <table class="table">
-          <thead>
-            <th>Seller Name</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Phone Number</th>
-            <th>Gender</th>
-            <th>Company Name</th>
-            <th>Account Holder Name</th>
-            <th>IFSC</th>
-            <th>Branch</th>
-            <th>Account Number</th>
-            <th>Password</th>
-          </thead>
-          <tbody>
-            <tr class="table-active"></tr>
-          </tbody>
-        </table>
-      </div>
+<div class="text-center p-4">
+  <h1>VIEW SELLER</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="">
+      <table class="table">
+        <thead>
+          <th>Seller Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Phone Number</th>
+          <th>Gender</th>
+          <th>Company Name</th>
+          <th>Account Holder Name</th>
+          <th>IFSC</th>
+          <th>Branch</th>
+          <th>Account Number</th>
+        </thead>
+        <tbody>
+          {% for seller in seller_list %}
+          <tr class="table-active">
+            <td>{{seller.seller_name|upper}}</td>
+            <td>{{seller.seller_email}}</td>
+            <td>{{seller.Address}}</td>
+            <td>{{seller.Phone_number}}</td>
+            <td>{{seller.Gender}}</td>
+            <td>{{seller.comp_name}}</td>
+            <td>{{seller.accholder_name}}</td>
+            <td>{{seller.ifsc}}</td>
+            <td>{{seller.branch}}</td>
+            <td>{{seller.acc_number}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
 {% endblock %}
