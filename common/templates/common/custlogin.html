@@ -18,10 +18,12 @@
                         <div class="col-12 col-sm-8 col-md-6 m-auto">
                             <div class="card shadow border">
                                 <div class="card-body">
-                                    <h3>SELLER LOGIN</h3>
+                                    <h3>CUSTOMER LOGIN</h3>
                                     <form method="POST">
+                                        {% csrf_token %}
+                                        {{custmsg}}
                                         <div class="mb-3">
-                                            <input type="name" name='c_username' class="form-control" id="exampleFormControlInput1" placeholder="username">
+                                            <input type="name" name='c_email' class="form-control" id="exampleFormControlInput1" placeholder="username">
                                         </div>
                                         <div class="mb-3 text-center">
                                         <input type="password" name="cust_password" class="form-control" placeholder="Password" id="exampleInputPassword1">

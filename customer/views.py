@@ -1,9 +1,12 @@
 from django.shortcuts import render
+from prodseller.models import Product
+
 
 # Create your views here.
 
 def custhome_page(request):
-    return render(request,'customer/custhome.html')
+    all_products = Product.objects.all()
+    return render(request,'customer/custhome.html',{'prods': all_products})
 def custpass_page(request):
     return render(request,'customer/pass.html')
 def custorder_page(request):

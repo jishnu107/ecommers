@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'common',
     'ecom_admin',
     'customer',
-    'reseller',
+    'prodseller',
 ]
 
 MIDDLEWARE = [

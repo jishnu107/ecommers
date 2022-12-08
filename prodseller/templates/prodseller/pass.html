@@ -1,11 +1,11 @@
-{% extends 'customer/custhome.html' %}
+{% extends 'prodseller/sellhome.html' %}
 {% load static %}
 {% block content %}
-    <div class="col-10 col-sm-8 col-md-6 m-auto">
-        <div class="card shadow border">
-            <div class="card-body">
-                <h3>CHANGE PASSWORD</h3>
-                <form>
+<div class="col-10 col-sm-8 col-md-6 m-auto">
+    <div class="card shadow border">
+        <div class="card-body">
+            <h3>CHANGE PASSWORD</h3>
+            <form>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Cureent Passwoed</label>
                     <input type="name" class="form-control" id="exampleFormControlInput1">
@@ -18,9 +18,9 @@
                     <label for="exampleFormControlInput1" class="form-label">Confirm Password</label>
                     <input type="name" class="form-control" id="exampleFormControlInput1">
                 </div>
-                </form>
-            </div>        
+                <button type="submit" class="btn btn-primary">Change Password</button>
+            </form>
         </div>
     </div>
+</div>
 {% endblock %}
-    

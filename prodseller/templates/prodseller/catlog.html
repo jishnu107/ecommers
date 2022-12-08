@@ -1,0 +1,25 @@
+{% extends 'prodseller/sellhome.html' %}
+{% load static %}
+{% block content %}
+
+<div class="col-md-10">
+    <div class="row">
+
+        {% for product in products %}
+        <div class="col-4">
+            <div class="card h-100" style="width: 18rem;">
+                <img src="{{product.product_image.url}}" style="height: 200px;" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.product_name|title}}</h5>
+                    <p class="card-text">{{product.product_description}}</p>
+
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

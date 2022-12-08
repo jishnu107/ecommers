@@ -93,9 +93,20 @@ def selllogin_page(request):
 
 
             request.session['seller'] = seller.id
-            return redirect('reseller:sellerhome')
+            return redirect('prodseller:sellerhome')
         except:
              msg = 'username or password incorrect'
     return render(request,'common/selllogin.html',{'msg':msg})
 def custlogin_page(request):
-    return render(request,'common/custlogin.html')
+    custmsg = ''
+    if request.method == 'POST':
+        cust_email = request.POST['c_email'] 
+        cust_password = request.POST['cust_password'] 
+
+        try :
+            customer = Customer.objects.get(Email_address = cust_email, Cust_password = cust_password )
+            return redirect('customer:custhome')
+        except:
+            custmsg = 'username or password incorrect'  
+
+    return render(request,'common/custlogin.html',{'custmsg':custmsg})

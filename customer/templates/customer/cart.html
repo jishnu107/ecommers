@@ -1,27 +1,21 @@
 {% extends 'customer/custhome.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-</head>
-<body>
-    {% block content %}
-    <div class="col-md-3 mt-3">
-        <div class="card" style="width: 18rem;">
-            <img src="{% static 'prodimg/strix.webp' %}" height="200px" width="200px" class="card-img-top" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Lenovo Legion 7i Core i7 10th Gen</h5>
-              <a href="#" class="btn btn-primary">Buy Now</a>
-              <a href="#" class="btn btn-primary">Remove from cart</a>
+{% block content %}
+<div class="col-md-3 mt-3 ">
+  <table class="table table--striped-columns">
+    <tr>
+      <th>ProductName</th>
+      <th>ProductDescription</th>
+      <th>ProductNumber</th>
+      <th>CurrentStock</th>
+      <th>ProductImage</th>
+      <th>ProductPrice</th>
+    </tr>
+    <tr>
 
-            </div>
-          </div>
-    {% endblock %}
-    
-</body>
-</html>
+    </tr>
+
+
+  </table>
+</div>
+{% endblock %}
