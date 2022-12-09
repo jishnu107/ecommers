@@ -41,11 +41,12 @@
               <div class="card-body">
                 <h5 class="card-title">{{product.product_name|title}}</h5>
                 <p class="card-text">{{product.product_description}}</p>
-                <button type="submit" class="btn btn-primary">Buy now</button>
-                <button type="submit" class="btn btn-primary">Add to cart</button><BR>
+               <p>seller:{{product.seller.seller_name|title}}</p>
+               <a href="{% url 'customer:viewproduct' product.id %}" class="btn btn-primary" style="text-decoration: none;"> Details</a>
               </div>
             </div>
           </div>
+          
           {% endfor %}
 
         </div>

@@ -17,6 +17,7 @@ def sellview_page(request):
 
     return render(request,'ecomadmin/sellerview.html',{'seller_list':sellers})
 def sellapprove_page(request):
-    return render(request,'ecomadmin/sellapprove.html')
+    sellers = Seller.objects.all()
+    return render(request,'ecomadmin/sellapprove.html',{'seller_app':sellers})
 def pass_page(request):
     return render(request,'ecomadmin/pass.html')

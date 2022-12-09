@@ -105,6 +105,8 @@ def custlogin_page(request):
 
         try :
             customer = Customer.objects.get(Email_address = cust_email, Cust_password = cust_password )
+            
+            request.session['customer'] = customer.id
             return redirect('customer:custhome')
         except:
             custmsg = 'username or password incorrect'  

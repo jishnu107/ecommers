@@ -7,7 +7,7 @@ urlpatterns = [
     path('custpass',views.custpass_page,name='custpass'),
     path('custcart',views.custcart_page,name='custcart'),
     path('custorder',views.custorder_page,name='custorder'),
-    path('viewproduct',views.viewproduct_page,name='viewproduct'),
+    path('viewproduct/<int:pid>',views.viewproduct_page,name='viewproduct'),
 
 
 

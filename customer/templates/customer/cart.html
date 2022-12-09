@@ -11,9 +11,21 @@
       <th>ProductImage</th>
       <th>ProductPrice</th>
     </tr>
-    <tr>
+      {% for cart in cart_list %}
+    <tr class="table-active">
+        <td>{{cart.product.product_name}}</td>
+        <td>{{cart.product.product_description}}</td>
+        <td>{{cart.product.product_number}}</td>
+        <td>{{cart.product.current_stock}}</td>
+        <td>
+        <img src="{{cart.product.product_image.url}}" style="height: 50px; width: 50px;" class="rounded mt-5 mb-5" alt="...">
+           </td>
+        <td>{{cart.product.price}}</td>
+
+
 
     </tr>
+      {% endfor %}
 
 
   </table>

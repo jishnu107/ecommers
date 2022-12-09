@@ -20,25 +20,29 @@
                     <th>IFSC</th>
                     <th>Branch</th>
                     <th>Account Number</th>
-                    <th>Password</th>
                     <th>Status</th>
                     <th>Action</th>
                 </thead>
                 <tbody>
-                    <tr class="table-active">
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>5</td>
-                        <td>4</td>
-                        <td><button type="button" class="btn btn-primary">approve</button></td>
-                        <td><button type="button" class="btn btn-danger">remove</button></td>
+            {% for seller in seller_app %}
+          <tr class="table-active">
+            <td>{{seller.seller_name|upper}}</td>
+            <td>{{seller.seller_email}}</td>
+            <td>{{seller.Address}}</td>
+            <td>{{seller.Phone_number}}</td>
+            <td>{{seller.Gender}}</td>
+            <td>{{seller.comp_name}}</td>
+            <td>{{seller.accholder_name}}</td>
+            <td>{{seller.ifsc}}</td>
+            <td>{{seller.branch}}</td>
+            <td>{{seller.acc_number}}</td>
+            <td><button type="button" class="btn btn-primary">approve</button></td>
+            <td><button type="button" class="btn btn-danger">remove</button></td>
+          </tr>
+          {% endfor %}
+                    <tr>
+                        
+                        
                     </tr>
                 </tbody>
             </table>
