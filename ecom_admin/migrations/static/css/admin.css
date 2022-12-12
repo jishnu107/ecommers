@@ -1,0 +1,13 @@
+.navbar{
+    background-color:#fb3531 ;
+}
+.btn2{
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    background-color: #fb3531;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+}

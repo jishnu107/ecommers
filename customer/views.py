@@ -52,7 +52,7 @@ def viewproduct_page(request,pid):
             return redirect('customer:custcart')
 
         else:
-            msg = 'item already in cart'
+            msg = 'Item already in cart'
 
         # data we pass from views to template is called context data
     context = {

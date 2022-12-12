@@ -17,6 +17,7 @@ def sellerhome_page(request):
 
 def addproduct_page(request):
     msg = ''
+    seller_data = Seller.objects.get(id=request.session['seller'])
     if request.method == 'POST':
         product_name = request.POST['p_name']
         product_description = request.POST['p_description']
@@ -31,21 +32,29 @@ def addproduct_page(request):
         new_product.save()
         msg = "product added successfully"
 
-    return render(request, 'prodseller/addprod.html',{'msg':msg,})
+    return render(request, 'prodseller/addprod.html',{'msg':msg,'data': seller_data})
 
 
 def sellerpass_page(request):
-    return render(request, 'prodseller/pass.html')
+    seller_data = Seller.objects.get(id=request.session['seller'])
+    return render(request, 'prodseller/pass.html', {'data': seller_data})
 
 
 def catlog_page(request):
     seller_products = Product.objects.filter(seller = request.session['seller'])
-    return render(request, 'prodseller/catlog.html',{'products':seller_products})
+    seller_data = Seller.objects.get(id=request.session['seller'])
+
+    return render(request, 'prodseller/catlog.html',{'products':seller_products,'data': seller_data})
 
 
 def currentstock_page(request):
-    return render(request, 'prodseller/currentstock.html')
+    seller_data = Seller.objects.get(id=request.session['seller'])
+
+
+    return render(request, 'prodseller/currentstock.html', {'data': seller_data})
 
 
 def updatestock_page(request):
-    return render(request, 'prodseller/updatestock.html')
+    seller_data = Seller.objects.get(id=request.session['seller'])
+
+    return render(request, 'prodseller/updatestock.html', {'data': seller_data})

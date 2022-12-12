@@ -1,8 +1,8 @@
 {% extends 'customer/custhome.html' %}
 {% load static %}
 {% block content %}
-<div class="col-md-3 mt-3 ">
-  <table class="table table--striped-columns">
+<div class="col-md-10 mt-3">
+  <table class="table table-dark table-striped text-center">
     <tr>
       <th>ProductName</th>
       <th>ProductDescription</th>
@@ -12,22 +12,17 @@
       <th>ProductPrice</th>
     </tr>
       {% for cart in cart_list %}
-    <tr class="table-active">
-        <td>{{cart.product.product_name}}</td>
-        <td>{{cart.product.product_description}}</td>
-        <td>{{cart.product.product_number}}</td>
-        <td>{{cart.product.current_stock}}</td>
-        <td>
-        <img src="{{cart.product.product_image.url}}" style="height: 50px; width: 50px;" class="rounded mt-5 mb-5" alt="...">
-           </td>
-        <td>{{cart.product.price}}</td>
-
-
-
+    <tr>
+      <td>{{cart.product.product_name}}</td>
+      <td>{{cart.product.product_description}}</td>
+      <td>{{cart.product.product_number}}</td>
+      <td>{{cart.product.current_stock}}</td>
+      <td>
+      <img src=" {{cart.product.product_image.url}}" style="height: 50px; width: 50px;" class="rounded mt-5 mb-5" alt="...">
+      </td>
+      <td>{{cart.product.price}}</td>
     </tr>
-      {% endfor %}
-
-
+    {% endfor %}
   </table>
 </div>
 {% endblock %}

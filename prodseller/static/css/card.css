@@ -1,0 +1,46 @@
+
+.card{
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.text{
+    font-size: 13px;
+    color: #cbcbcb;
+}
+.info{
+    line-height: 17px;
+}
+.cost span{
+    color: #fb3531;
+    font-weight: bold;
+    font-size: 20px;
+}
+.sheo{
+    width: 100%;
+    background-color: #fb3531;
+    border-bottom-left-radius: 17px;
+    border-bottom-right-radius: 17px;
+}
+.side{
+    background-color: #fb3531;
+    
+}
+.form-control{
+    size: 100%;
+}
+.btn2{
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    background-color: #fb3531;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+}

@@ -4,10 +4,10 @@
 <div class="text-center p-4">
   <h1>VIEW SELLER</h1>
 </div>
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="">
-      <table class="table">
+    <div class="col-sm-12">
+      <table class="table table-dark table-striped text-center">
         <thead>
           <th>Seller Name</th>
           <th>Email</th>
@@ -22,7 +22,7 @@
         </thead>
         <tbody>
           {% for seller in seller_list %}
-          <tr class="table-active">
+          <tr>
             <td>{{seller.seller_name|upper}}</td>
             <td>{{seller.seller_email}}</td>
             <td>{{seller.Address}}</td>
