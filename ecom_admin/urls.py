@@ -8,6 +8,9 @@ urlpatterns = [
     path('sellerview',views.sellview_page,name='sellerview'),
     path('sellapprove',views.sellapprove_page,name='sellapprove'),
     path('pass',views.pass_page,name='pass'),
+    path('approve/<int:sid>',views.approve,name='approve'),
+    path('deletesell/<int:sid>',views.delete_seller,name='deletesell'),
+
 
 
 

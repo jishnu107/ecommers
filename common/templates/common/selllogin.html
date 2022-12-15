@@ -21,7 +21,6 @@
                     <h1 class="col-lg-7 px-5 pt-5">SELLER</h1>
                     <form method="POST">
                         {% csrf_token %}
-                        {{custmsg}}
                         <div class="from-row">
                             <div class="col-lg-7">
                                 <input type="username" name='s_username' placeholder="Username" class="form-control my-3 p-4">
@@ -31,6 +30,7 @@
                             <div class="col-lg-7">
                                 <input type="password"  name="sell_password" placeholder="*******" class="form-control my-3 p-4">
                             </div>
+                            <p style="color: red;">{{msg}}</p>
                         </div>
                         <div class="from-row">
                             <div class="col-lg-7">
@@ -41,6 +41,7 @@
                         </div>
                         <a href="#" style="text-decoration: none;">Forgot password</a>
                         <p>Don't have an account? <a href="{% url 'common:sellreg' %}" style="text-decoration: none;">Register here</a></p>
+                        <p><b>Login as a customer? <a href="{% url 'common:custlogin' %}" style="text-decoration: none;">Click here</a></b></p>
                     </form>
                 </div>
             </div>

@@ -20,6 +20,8 @@
         <div class="sidebar">
           <nav class="navbar">
             <div class="navbar-nav">
+              <a href="{% url 'customer:profile' %}" class="nav-item nav-link active text-white"><i
+                class="fa fa-tachometer-alt me-2"></i>Profile</a>
               <a href="{% url 'customer:custhome' %}" class="nav-item nav-link active text-white"><i
                   class="fa fa-tachometer-alt me-2"></i>Home</a>
               <a href="{% url 'customer:custcart' %}" class="nav-item nav-link active text-white"><i
@@ -28,7 +30,7 @@
                   class="fa fa-keyboard me-2"></i>Order</a>
               <a href="{% url 'customer:custpass' %}" class="nav-item nav-link active text-white"><i
                   class="fa fa-chart-bar me-2"></i>Change password</a>
-              <a href="" class="nav-item nav-link active text-white"><i class="fa fa-chart-bar me-2"></i>Logout</a>
+              <a href="{% url 'common:custlogin' %}" class="nav-item nav-link active text-white"><i class="fa fa-chart-bar me-2"></i>Logout</a>
             </div>
           </nav>
         </div>
