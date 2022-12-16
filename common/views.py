@@ -3,7 +3,7 @@ from . models import Customer,Seller
 import random
 from django.core.mail import send_mail
 from django.conf import settings
-
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -11,7 +11,7 @@ from django.conf import settings
 def custreg_page(request):
     if request.method == 'POST': #when submit button is clicked
         c_name = request.POST['c_name'] #here we get data input in textbox,
-        C_email = request.POST['c_email']
+        c_email = request.POST['c_email']
         c_address = request.POST['c_address']
         c_number = request.POST['c_number']
         c_gender = request.POST['c_gender']
@@ -20,7 +20,7 @@ def custreg_page(request):
 
         #1.craete object of model class, eg:Customer
 
-        new_customer = Customer(Customer_name = c_name , Email_address = C_email,Address = c_address,Phone_number = c_number,Gender= c_gender,Cust_password=c_password)
+        new_customer = Customer(customer_name = c_name , email_address = c_email,address = c_address,phone_number = c_number,gender= c_gender,cust_password=c_password)
          #call save() method, here save method is equalent to insert into sql query
 
         new_customer.save()
@@ -53,8 +53,8 @@ def sellreg_page(request):
             fail_silently=False
             
         )
-        seller_list = Seller(seller_name = seller_name,seller_email = seller_email,Address = seller_address,Phone_number = seller_number, 
-                      Gender = gender,comp_name = company_name,accholder_name = accholder, ifsc = ifsc,  branch = branch, acc_number=acc_number,
+        seller_list = Seller(seller_name = seller_name,seller_email = seller_email,address = seller_address,phone_number = seller_number, 
+                      gender = gender,comp_name = company_name,accholder_name = accholder, ifsc = ifsc,  branch = branch, acc_number=acc_number,
                       sell_pic = seller_image,seller_user = username,seller_pass =seller_password)
         seller_list.save()
 
@@ -70,8 +70,7 @@ def selllogin_page(request):
         
         # select * from seller where selleruname= selername and passwd = passwd
         try :
-            seller = Seller.objects.get(seller_user = sell_username, seller_pass = sell_password )
-
+            seller = Seller.objects.get(seller_user = sell_username, seller_pass = sell_password,approved = True )
             # if username and password is correct, we set a session variable with key 'seller'
             # session variable can be accessed throughout the application
 
@@ -91,10 +90,10 @@ def selllogin_page(request):
             # when the request reaches the server, it will look for the key stored in cookie to match with 
             # django_session table inside the database to find the corresponding user
 
-
             request.session['seller'] = seller.id
             return redirect('prodseller:sellerhome')
         except:
+            
              msg = 'username or password incorrect'
     return render(request,'common/selllogin.html',{'msg':msg})
 def custlogin_page(request):
@@ -104,9 +103,19 @@ def custlogin_page(request):
         cust_password = request.POST['cust_password'] 
 
         try :
-            customer = Customer.objects.get(Email_address = cust_email, Cust_password = cust_password )
+            customer = Customer.objects.get(email_address = cust_email, cust_password = cust_password )
+            
+            request.session['customer'] = customer.id
             return redirect('customer:custhome')
         except:
             custmsg = 'username or password incorrect'  
 
     return render(request,'common/custlogin.html',{'custmsg':custmsg})
+
+def email_exist(request):
+    email = request.POST['email'] # here email is the key inside json
+
+    status = Customer.objects.filter(email_address = email).exists()
+
+    return JsonResponse({'status':status})
+

@@ -4,12 +4,12 @@
 <div class="text-center p-4">
     <h1>APPROVE SELLER</h1>
 </div>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
 
-        <div class="">
-            <table class="table">
-                <thead>
+        <div class="col-sm-12">
+            <table class="table table-dark table-striped text-center  border shadow">
+                <tr>
                     <th>Seller Name</th>
                     <th>Email</th>
                     <th>Address</th>
@@ -20,27 +20,38 @@
                     <th>IFSC</th>
                     <th>Branch</th>
                     <th>Account Number</th>
-                    <th>Password</th>
                     <th>Status</th>
                     <th>Action</th>
-                </thead>
-                <tbody>
-                    <tr class="table-active">
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>5</td>
-                        <td>4</td>
-                        <td><button type="button" class="btn btn-primary">approve</button></td>
-                        <td><button type="button" class="btn btn-danger">remove</button></td>
-                    </tr>
-                </tbody>
+                </tr>
+                {% for seller in seller_app %}
+                <tr>
+
+                    <td>{{seller.seller_name|upper}}</td>
+                    <td>{{seller.seller_email}}</td>
+                    <td>{{seller.address}}</td>
+                    <td>{{seller.phone_number}}</td>
+                    <td>{{seller.gender}}</td>
+                    <td>{{seller.comp_name}}</td>
+                    <td>{{seller.accholder_name}}</td>
+                    <td>{{seller.ifsc}}</td>
+                    <td>{{seller.branch}}</td>
+                    <td>{{seller.acc_number}}</td>
+                    <td>
+                        {% if not seller.approved %}
+                        <button class="btn btn-primary"><a href="{% url 'ecome_admin:approve' seller.id %}"
+                                style="color: aliceblue;text-decoration: none;">APPROVE</a></button>
+
+                        {% else %}
+                        <p style="color: gray;"><b>APPROVED</b></p>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger">
+                            <a href="{% url 'ecome_admin:deletesell' seller.id %}" style="color: aliceblue;text-decoration: none;">REMOVE</a>
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
             </table>
         </div>
 

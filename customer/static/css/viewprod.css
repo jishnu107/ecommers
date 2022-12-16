@@ -1,0 +1,37 @@
+.cont{
+    margin-top: 100px;
+}
+.col-md-5 h2{
+    color: #555;
+}
+.price{
+    color: #fb3531;
+    font-size: 26px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+.cart{
+    background-color: #fb3531;
+    color: #ffffff;
+    font-size: 15px;  
+
+}
+.alert{
+    color: red;
+    font-weight: bold;
+}
+
+.btn2{
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    background-color: #fb3531;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.cart1{
+    color: #555;
+    font-weight: lighter;
+}

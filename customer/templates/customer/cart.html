@@ -1,21 +1,47 @@
 {% extends 'customer/custhome.html' %}
 {% load static %}
 {% block content %}
-<div class="col-md-3 mt-3 ">
-  <table class="table table--striped-columns">
+<div class="col-md-10 mt-3">
+  {% if cart_list %}
+  <table class="table table-dark table-striped text-center">
     <tr>
       <th>ProductName</th>
       <th>ProductDescription</th>
       <th>ProductNumber</th>
       <th>CurrentStock</th>
       <th>ProductImage</th>
-      <th>ProductPrice</th>
+      <th>Quantity</th>
+      <th>TotalPrice</th>
+      <th>Action</th>
     </tr>
+      {% for cart in cart_list %}
     <tr>
-
+      <td>{{cart.product.product_name}}</td>
+      <td>{{cart.product.product_description}}</td>
+      <td>{{cart.product.product_number}}</td>
+      <td>{{cart.product.current_stock}}</td>
+      <td>
+      <img src=" {{cart.product.product_image.url}}" style="height: 50px; width: 50px;" class="rounded" alt="...">
+      </td>
+      <td><input type="number"></td>
+      <td>{{cart.product.price}}</td>
+      <td><button class="btn btn-danger">
+        <a href="{% url 'customer:remove_cart' cart.product.id %}" style="color: aliceblue; text-decoration: none;">REMOVE</a>
+      </button></td>
     </tr>
-
-
+    {% endfor %}
   </table>
+  {% else %}
+<div class="cart1 text-center">
+  <h1>Cart Empty</h1>
+</div>
+
+  {% endif %}
+  <div>
+    <p>Grand Total = </p>
+    <button>check out</button>
+
+  </div>
+  
 </div>
 {% endblock %}
