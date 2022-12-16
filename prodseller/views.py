@@ -17,6 +17,7 @@ def sellerhome_page(request):
 
 def addproduct_page(request):
     msg = ''
+    
     if request.method == 'POST':
         product_name = request.POST['p_name']
         product_description = request.POST['p_description']
