@@ -2,12 +2,15 @@ from django.shortcuts import render,redirect
 from prodseller.models import Product
 from common.models import Customer
 from .models import Cart
-
+from .auth_gaurd import auth_customer
 # Create your views here.
 
+@auth_customer
 def custhome_page(request):
     product_list = Product.objects.all()
     return render(request,'customer/custhome.html',{'prods': product_list})
+
+@auth_customer
 def profile_page(request):
     msg=''
     product_list = Product.objects.all()
@@ -33,6 +36,8 @@ def profile_page(request):
     }
 
     return render(request,'customer/profile.html',context)
+
+@auth_customer
 def custpass_page(request):
     msg=''
     if request.method == 'POST':
@@ -56,11 +61,20 @@ def custpass_page(request):
             msg = 'Incorrect Password'
 
     return render(request,'customer/pass.html',{'msg':msg})
+
+@auth_customer
 def custorder_page(request):
     return render(request,'customer/order.html')
+
+@auth_customer
 def custcart_page(request):
+    # if 'customer' in request.session:
     product_cart = Cart.objects.filter(customer = request.session['customer'])
     return render(request,'customer/cart.html',{'cart_list':product_cart})
+    # else:
+    #     return redirect('common:custlogin')
+
+@auth_customer
 def viewproduct_page(request,pid):
     msg = ''
     product_details = Product.objects.get(id = pid)

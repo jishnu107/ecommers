@@ -10,7 +10,8 @@
       <th>ProductNumber</th>
       <th>CurrentStock</th>
       <th>ProductImage</th>
-      <th>ProductPrice</th>
+      <th>Quantity</th>
+      <th>TotalPrice</th>
       <th>Action</th>
     </tr>
       {% for cart in cart_list %}
@@ -22,6 +23,7 @@
       <td>
       <img src=" {{cart.product.product_image.url}}" style="height: 50px; width: 50px;" class="rounded" alt="...">
       </td>
+      <td><input type="number"></td>
       <td>{{cart.product.price}}</td>
       <td><button class="btn btn-danger">
         <a href="{% url 'customer:remove_cart' cart.product.id %}" style="color: aliceblue; text-decoration: none;">REMOVE</a>
@@ -35,5 +37,11 @@
 </div>
 
   {% endif %}
+  <div>
+    <p>Grand Total = </p>
+    <button>check out</button>
+
+  </div>
+  
 </div>
 {% endblock %}

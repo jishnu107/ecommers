@@ -10,6 +10,8 @@ urlpatterns = [
     path('custorder',views.custorder_page,name='custorder'),
     path('viewproduct/<int:pid>',views.viewproduct_page,name='viewproduct'),
     path('remove_cart/<int:pid>',views.remove_item,name='remove_cart'),
+    path('logout',views.logout,name='logout'),
+
 
 
 

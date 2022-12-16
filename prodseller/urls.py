@@ -10,5 +10,7 @@ urlpatterns = [
     path('currentstock', views.currentstock_page, name='currentstock'),
     path('updatestock', views.updatestock_page, name='updatestock'),
     path('getstock', views.get_stock, name='getstock'),
+    path('logout', views.logout, name='logout'),
+
 
 ]
